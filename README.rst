@@ -12,6 +12,9 @@ Install
     for ssl make certs in /etc/pki/aapi, and uncomment the http_server ssl stuff
     in bin/aapi
 
+    openssl command to make certs looks like
+    /usr/bin/openssl req -x509 -newkey rsa:2048 -keyout /etc/pki/aapi/key.pem -out /etc/pki/aapi/cert.pem -days 3650 -nodes -config /etc/pki/aapi/openssl.cnf
+
 Usage
 -----
 
@@ -32,3 +35,12 @@ Start manually
 Start with the service script
 
     sudo service aapi start
+
+Code
+----
+
+    bin/aapi starts the http service in run_service(), this is where you would uncomment things for ssl
+
+    bin/aapi defines the available end points in Application([]), a class is defined for each end point
+
+
