@@ -1,0 +1,4 @@
+include *.txt *.rst
+recursive-include aapi/init-script *
+recursive-include aapi/config *
+recursive-include aapi/certs *
