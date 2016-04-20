@@ -1,4 +1,4 @@
-import os, errno
+import os, sys, errno
 
 class mkDir:
     def __init__(self, path):
@@ -12,8 +12,6 @@ class mkDir:
 
 class forkIt:
     def __init__(self, it, pidfile):
-        import sys, os 
-
         try: 
             pid = os.fork() 
             if pid > 0:
