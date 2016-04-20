@@ -20,6 +20,8 @@
 RETVAL=0
 prog="aapi"
 exec="/usr/bin/${prog}"
+PYTHON="/usr/bin/python2.7"
+runprog="${PYTHON} ${exec}"
 lockfile="/var/lock/subsys/${prog}"
 PIDFILE="/var/run/${prog}.pid"
 AAPIARGS="-d -P $PIDFILE"
@@ -38,7 +40,7 @@ start() {
     [ -x $exec ] || exit 5
     #[ -f $config ] || exit 6
     echo -n $"Starting $prog: "
-    daemon --pidfile="$PIDFILE" $prog $AAPIARGS
+    daemon --pidfile="$PIDFILE" $runprog $AAPIARGS
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
