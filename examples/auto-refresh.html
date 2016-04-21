@@ -18,7 +18,7 @@
 
   function getThing() {
     script = document.createElement("script");
-    script.src = "http://192.168.22.33:5000/do/jsonp/thing?callback=DataCallback";
+    script.src = "http://localhost:5000/do/jsonp/thing?callback=DataCallback";
     document.body.appendChild(script);
     script.parentNode.removeChild(script);
 
