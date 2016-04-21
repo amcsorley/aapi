@@ -40,7 +40,8 @@ pidfile = args['pidfile']
 
 app = Application([
     (r"/help", handle.Help),
-    (r"/do/thing", handle.DoThing),
+    (r"/do/json/thing", handle.DoJsonThing),
+    (r"/do/jsonp/thing", handle.DoJsonpThing),
 ])
 
 def run_service():
