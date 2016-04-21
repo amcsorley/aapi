@@ -22,12 +22,21 @@ def do_thing():
     output = time.ctime()
     return output
 
-class DoThing(RequestHandler):
+class DoJsonpThing(RequestHandler):
     def get(self):
-        """Do the thing"""
+        """Do the jsonp thing"""
         result = { 'thing' : do_thing() }
         callback = self.get_argument('callback')
         jsonp = "{jsfunc}({json});".format(jsfunc=callback,json=json_encode(result))
         self.set_header('Content-Type', 'application/javascript')
         self.write(jsonp)
+
+class DoJsonThing(RequestHandler):
+    def get(self):
+        """Do the json thing"""
+        result = { 'thing' : do_thing() }
+        json = json_encode(result)
+        self.set_header('Content-Type', 'application/json')
+        self.write(json)
+
 
